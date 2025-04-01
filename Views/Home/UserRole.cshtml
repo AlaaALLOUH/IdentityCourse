@@ -1,0 +1,44 @@
+﻿
+
+
+<table class="table" border="1">
+    <thead>
+    <tr>
+        <th>Email</th>
+       <th>Name</th>
+       <th>Phone Number</th>
+       <th>Roles</th>
+    </tr>
+    </thead>
+
+    @foreach(var item in Model){
+        <tr>
+            <th>@item.User.Email</th>
+            <th>@item.User.UserName</th>
+            <th>Phonee</th>
+            <th>
+                @foreach (var roleName in ViewBag.AllRoles){
+                    @if(item.userRoles.Contains(roleName.ToString())){
+                        <a class="btn btn-primary" href="addroletouser/@item.User.Id/@roleName">@roleName</a>
+                    }
+                    else{
+                        <a class="btn btn-outline-primary" href="addroletouser/@item.User.Id/@roleName">@roleName</a>
+                    }
+                }
+        
+       
+        
+        
+        </th>
+
+        </tr>
+    }
+
+
+
+
+
+
+
+
+</table>
